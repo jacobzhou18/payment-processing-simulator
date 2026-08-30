@@ -1,0 +1,32 @@
+package com.payment;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+
+public class Transaction {
+    private final String transactionReference;
+    private final Merchant merchant;
+    private final BigDecimal transactionAmount;
+    private final Currency currency;
+    private final PaymentMethod paymentMethod;
+    private final Instant timeOfTransaction;
+    private Outcome outcome;
+    
+    public Transaction(String transactionReference, Merchant merchant, BigDecimal transactionAmount, Currency currency, PaymentMethod paymentMethod, Instant timeOfTransaction){
+        this.transactionReference = transactionReference;
+        this.merchant = merchant;
+        this.transactionAmount = transactionAmount;
+        this.currency = currency;
+        this.paymentMethod = paymentMethod;
+        this.timeOfTransaction = timeOfTransaction;
+        this.outcome = Outcome.PENDING;
+    }
+
+    public boolean isAmountValid(){
+        if(transactionAmount!=null&&transactionAmount.compareTo(BigDecimal.ZERO)>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
