@@ -11,6 +11,14 @@ public class Merchant {
         this.active = active;
     }
 
+    public String getMerchantId(){
+        return merchantId;
+    }
+
+    public String getMerchantName(){
+        return merchantName;
+    }
+
     public boolean isActive(){
         return active;
     }

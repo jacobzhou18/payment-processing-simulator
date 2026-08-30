@@ -22,6 +22,34 @@ public class Transaction {
         this.outcome = Outcome.PENDING;
     }
 
+    public String getTransactionReference(){
+        return transactionReference;
+    }
+
+    public Merchant getMerchant(){
+        return merchant;
+    }
+
+    public BigDecimal getTransactionAmount(){
+        return transactionAmount;
+    }
+
+    public Currency getCurrency(){
+        return currency;
+    }
+
+    public PaymentMethod getPaymentMethod(){
+        return paymentMethod;
+    }
+
+    public Instant getTimeOfTransaction(){
+        return timeOfTransaction;
+    }
+
+    public Outcome getOutcome(){
+        return outcome;
+    }
+
     public boolean isAmountValid(){
         if(transactionAmount!=null&&transactionAmount.compareTo(BigDecimal.ZERO)>0){
             return true;
