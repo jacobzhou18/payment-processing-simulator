@@ -49,12 +49,4 @@ public class Transaction {
     public Outcome getOutcome(){
         return outcome;
     }
-
-    public boolean isAmountValid(){
-        if(transactionAmount!=null&&transactionAmount.compareTo(BigDecimal.ZERO)>0){
-            return true;
-        }else{
-            return false;
-        }
-    }
 }
