@@ -19,10 +19,10 @@ public class PaymentValidator {
             errors.add("Merchant is required");
         }else{
             if(merchant.getMerchantId() == null||merchant.getMerchantId().isBlank()){
-                errors.add("Merchant ID is empty");
+                errors.add("Merchant ID is required");
             }
             if(merchant.getMerchantName() == null||merchant.getMerchantName().isBlank()){
-                errors.add("Merchant name is empty");
+                errors.add("Merchant name is required");
             }
             if(!merchant.isActive()){
                 errors.add("Merchant is inactive");
@@ -31,22 +31,14 @@ public class PaymentValidator {
     }
 
     private void validateReference(){
-        if(transaction.getTransactionReference()==null){
+        if(transaction.getTransactionReference()==null||transaction.getTransactionReference().isBlank()){
             errors.add("Payment reference is required");
-        }else{
-            if(transaction.getTransactionReference().isBlank()){
-                errors.add("Payment reference is empty");
-            }
         }
     }
 
     private void validateAmount(){
-        if(transaction.getTransactionAmount()==null){
+        if(transaction.getTransactionAmount()==null||transaction.getTransactionAmount().compareTo(BigDecimal.ZERO)<=0){
             errors.add("Payment amount is required");
-        }else{
-            if(transaction.getTransactionAmount().compareTo(BigDecimal.ZERO)<=0){
-                errors.add("Non-positive payment amount");
-            }
         }
     }
 
