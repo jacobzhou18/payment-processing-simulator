@@ -12,13 +12,13 @@ public class Transaction {
     private final Instant timeOfTransaction;
     private Outcome outcome;
     
-    public Transaction(String transactionReference, Merchant merchant, BigDecimal transactionAmount, Currency currency, PaymentMethod paymentMethod, Instant timeOfTransaction){
+    public Transaction(String transactionReference, Merchant merchant, BigDecimal transactionAmount, Currency currency, PaymentMethod paymentMethod){
         this.transactionReference = transactionReference;
         this.merchant = merchant;
         this.transactionAmount = transactionAmount;
         this.currency = currency;
         this.paymentMethod = paymentMethod;
-        this.timeOfTransaction = timeOfTransaction;
+        this.timeOfTransaction = Instant.now();
         this.outcome = Outcome.PENDING;
     }
 
