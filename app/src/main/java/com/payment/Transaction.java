@@ -49,4 +49,16 @@ public class Transaction {
     public Outcome getOutcome(){
         return outcome;
     }
+
+    public void approve(){
+        this.outcome = Outcome.APPROVED;
+    }
+
+    public void decline(){
+        this.outcome = Outcome.DECLINED;
+    }
+
+    public void review(){
+        this.outcome = Outcome.REVIEW;
+    }
 }
