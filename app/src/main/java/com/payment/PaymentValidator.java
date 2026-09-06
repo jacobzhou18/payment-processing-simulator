@@ -37,8 +37,12 @@ public class PaymentValidator {
     }
 
     private void validateAmount(){
-        if(transaction.getTransactionAmount()==null||transaction.getTransactionAmount().compareTo(BigDecimal.ZERO)<=0){
+        if(transaction.getTransactionAmount()==null){
             errors.add("Payment amount is required");
+        }else{
+            if(transaction.getTransactionAmount().compareTo(BigDecimal.ZERO)<=0){
+                errors.add("Payment amount is non-positive");
+            }
         }
     }
 
